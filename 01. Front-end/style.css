@@ -61,6 +61,13 @@
     background-color:coral;
 }
 
+.boxdouble {
+    /* make it double */
+    width:33.3%;
+    height: 33.3%;
+    background-color:coral;
+}
+
 .upbox {
     display: flex;
     align-self: flex-start;
