@@ -41,7 +41,7 @@ console.log(title);
 
 const showtext = () => {
     let inputtext = document.getElementById('el2').value;
-    console.log(inputtext);
+    alert(inputtext);
 };
 
 // selecionando elementos
@@ -64,3 +64,18 @@ const showtext = () => {
 // document.createElement("tag") → cria um novo elemento.
 // appendChild, prepend → adicionam elementos na árvore DOM.
 // remove() → remove um elemento da página.
+
+const changecolor = () => {
+    let currcircle = document.getElementById('mycircle');
+    if (currcircle.className == "circle ok") {
+        currcircle.className = "circle notok";
+    } else {
+        currcircle.className = "circle ok";
+    }
+};
+
+const changecolorpick = () => {
+    let currcircle = document.getElementById('mycirclepick');
+    let color = document.getElementById('colorpick');
+    currcircle.style.backgroundColor = color.value;
+};
