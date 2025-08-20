@@ -37,3 +37,8 @@ const sub = (a, b) => a - b;
 
 let title = document.getElementById('el1');
 console.log(title);
+
+const showtext = () => {
+    let inputtext = document.getElementById('el2').value;
+    console.log(inputtext);
+};
