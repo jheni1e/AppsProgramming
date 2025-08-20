@@ -19,10 +19,11 @@ function soma(a, b) {
     return a + b;
 }
 
-// função anônima
+// função anônima atribuída
 const mult = function (a, b) {
     return a * b;
 };
 
 // arrow function
 const sub = (a, b) => a - b;
+
