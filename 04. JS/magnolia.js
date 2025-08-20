@@ -27,3 +27,13 @@ const mult = function (a, b) {
 // arrow function
 const sub = (a, b) => a - b;
 
+// principais métodos de array
+// .map()
+// .filter()
+// .find()
+// .findIndex()
+// .indexof()
+// .reduce()
+
+let title = document.getElementById('el1');
+console.log(title);
