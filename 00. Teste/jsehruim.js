@@ -1,5 +1,3 @@
-console.log("javascript lixoso");
-
 let almoco = "choripan";
 
 if (almoco != "choripan") {
