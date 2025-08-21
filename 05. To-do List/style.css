@@ -60,7 +60,6 @@ body {
 
 .task {
     font-weight: normal;
-    cursor: pointer;
 }
 
 .tasklist {
@@ -76,4 +75,20 @@ body {
     align-items: center;
     flex-direction: row;
     margin: -12px 15px;
+}
+
+.left {
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+    margin-left: 5vh;
+    align-items: center
+}
+
+.right {
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+    margin-right: 5vh;
+    align-items: center
 }
