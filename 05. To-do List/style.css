@@ -43,10 +43,6 @@ body {
     text-align: center;
 }
 
-.donetask {
-    font-style:;
-}
-
 .rowbuttons {
     display: flex;
     flex-direction: row;
@@ -69,6 +65,11 @@ body {
 
 .tasklist {
     display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+}
+
+.divtask {
+    display: flex;
     justify-content: space-around;
-    flex-direction: row;
 }
