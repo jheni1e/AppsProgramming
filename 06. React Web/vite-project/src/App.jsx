@@ -1,18 +1,14 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
+import BoschPrimary from './components/BoschPrimary/BoschPrimary'
+import BoschSecondary from './components/BoschSecondary/BoschSecondary'
+import BoschTertiary from './components/BoschTertiary/BoschTertiary'
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
     <>
-      <div className="card">
-        <button onClick={() => setCount((count) => count < 10 ? count + 1 : 0)}>
-          count is {count}
-        </button>
-      </div>
+      <BoschPrimary text="Bosch Primary"/>
+      <BoschSecondary text="Bosch Secondary"/>
+      <BoschTertiary text="Bosch Tertiary"/>
     </>
   )
 }
