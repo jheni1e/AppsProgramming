@@ -14,9 +14,11 @@
 
 .a:hover {
     background-color:#00629a;
+    border: 1px solid #0000;
 }
 
 .a:focus {
     background-color:#004975;
+    border: 1px solid #0000;
     outline: none;
 }
