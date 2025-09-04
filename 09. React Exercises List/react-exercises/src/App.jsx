@@ -7,6 +7,8 @@ import TrafficLights from './components/TrafficLights'
 import AlterTitle from './components/AlterTitle'
 import EvenOrOdd from './components/EvenOrOdd'
 import CounterColateral from './components/CounterColateral'
+import Inactivity from './components/Inactivity'
+import Stopwatch from './components/Stopwatch'
 
 function App() {
   return (
@@ -25,6 +27,10 @@ function App() {
         <TrafficLights></TrafficLights> {/* exercício 6 */}
         <br/>
         <EvenOrOdd></EvenOrOdd> {/* exercício 7 */}
+        <br/>
+        <Inactivity></Inactivity> {/* exercício 8 */}
+        <br/>
+        <Stopwatch></Stopwatch> {/* exercício 9 */}
       </div>
     </>
   )

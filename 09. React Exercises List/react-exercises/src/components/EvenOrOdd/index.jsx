@@ -7,7 +7,7 @@ export default function EvenOrOdd() {
     useEffect(() => {
             const interval = setInterval(() => {
                 setCount(count => count + 1)
-            }, 2000);
+            }, 1000);
 
             return () => clearInterval(interval);
         }, [])
