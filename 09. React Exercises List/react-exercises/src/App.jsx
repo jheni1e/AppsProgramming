@@ -9,6 +9,8 @@ import EvenOrOdd from './components/EvenOrOdd'
 import CounterColateral from './components/CounterColateral'
 import Inactivity from './components/Inactivity'
 import Stopwatch from './components/Stopwatch'
+import FastClick from './components/FastClick'
+import ProgressBar from './components/ProgressBar'
 
 function App() {
   return (
@@ -31,6 +33,10 @@ function App() {
         <Inactivity></Inactivity> {/* exercício 8 */}
         <br/>
         <Stopwatch></Stopwatch> {/* exercício 9 */}
+        <br/>
+        <FastClick></FastClick> {/* exercício 10 */}
+        <br/>
+        <ProgressBar></ProgressBar>{/* exercício 11 */}
       </div>
     </>
   )
