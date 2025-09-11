@@ -7,6 +7,7 @@ import CustomTitle from './components/CustomTitle'
 import ColoredBox from './components/ColoredBox'
 import CustomWelcome from './components/CustomWelcome'
 import TextboxLabel from './components/TextboxLabel'
+import CustomCounter from './components/CustomCounter'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -36,6 +37,12 @@ function App() {
       <CustomWelcome name="Lasnove" hour="noite"></CustomWelcome>
 
       <TextboxLabel label="Nome" placeholder="Digite seu nome aqui..."></TextboxLabel>
+      <TextboxLabel label="Email" placeholder="Digite seu e-mail aqui..."></TextboxLabel>
+      <TextboxLabel label="Senha" placeholder="Digite sua senha aqui..."></TextboxLabel>
+
+      <CustomCounter start={0} step={1}></CustomCounter>
+      <CustomCounter start={10} step={5}></CustomCounter>
+      <CustomCounter start={0} step={10}></CustomCounter>
     </>
   )
 }
