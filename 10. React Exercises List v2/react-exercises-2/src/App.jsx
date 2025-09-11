@@ -8,6 +8,7 @@ import ColoredBox from './components/ColoredBox'
 import CustomWelcome from './components/CustomWelcome'
 import TextboxLabel from './components/TextboxLabel'
 import CustomCounter from './components/CustomCounter'
+import TrafficLights from './components/TrafficLights'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -43,6 +44,14 @@ function App() {
       <CustomCounter start={0} step={1}></CustomCounter>
       <CustomCounter start={10} step={5}></CustomCounter>
       <CustomCounter start={0} step={10}></CustomCounter>
+
+      <div style={{display: 'flex', flexDirection: 'row'}}>
+        <TrafficLights currColor="red"></TrafficLights>
+        <TrafficLights currColor="yellow"></TrafficLights>
+        <TrafficLights currColor="green"></TrafficLights>
+      </div>
+
+      
     </>
   )
 }
