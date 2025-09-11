@@ -6,6 +6,7 @@ import ConditionalMessage from './components/ConditionalMessage'
 import CustomTitle from './components/CustomTitle'
 import ColoredBox from './components/ColoredBox'
 import CustomWelcome from './components/CustomWelcome'
+import TextboxLabel from './components/TextboxLabel'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -33,6 +34,8 @@ function App() {
       <CustomWelcome name="Jhenie" hour="manhã"></CustomWelcome>
       <CustomWelcome name="Leleca" hour="tarde"></CustomWelcome>
       <CustomWelcome name="Lasnove" hour="noite"></CustomWelcome>
+
+      <TextboxLabel label="Nome" placeholder="Digite seu nome aqui..."></TextboxLabel>
     </>
   )
 }
