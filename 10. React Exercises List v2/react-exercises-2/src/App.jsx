@@ -5,6 +5,7 @@ import CustomButton from './components/CustomButton'
 import ConditionalMessage from './components/ConditionalMessage'
 import CustomTitle from './components/CustomTitle'
 import ColoredBox from './components/ColoredBox'
+import CustomWelcome from './components/CustomWelcome'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -28,6 +29,10 @@ function App() {
       <ColoredBox width={100} height={50} color="lightseagreen"></ColoredBox>
       <ColoredBox width={50} height={50} color="bisque"></ColoredBox>
       <ColoredBox width={100} height={25} color="thistle"></ColoredBox>
+
+      <CustomWelcome name="Jhenie" hour="manhã"></CustomWelcome>
+      <CustomWelcome name="Leleca" hour="tarde"></CustomWelcome>
+      <CustomWelcome name="Lasnove" hour="noite"></CustomWelcome>
     </>
   )
 }
