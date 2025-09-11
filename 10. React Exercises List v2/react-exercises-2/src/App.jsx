@@ -4,6 +4,7 @@ import ProfileCard from './components/ProfileCard'
 import CustomButton from './components/CustomButton'
 import ConditionalMessage from './components/ConditionalMessage'
 import CustomTitle from './components/CustomTitle'
+import ColoredBox from './components/ColoredBox'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -23,6 +24,10 @@ function App() {
       <CustomTitle text="Título H1" size={1}></CustomTitle>
       <CustomTitle text="Título H2" size={2}></CustomTitle>
       <CustomTitle text="Título H3" size={3}></CustomTitle>
+
+      <ColoredBox width={100} height={50} color="lightseagreen"></ColoredBox>
+      <ColoredBox width={50} height={50} color="bisque"></ColoredBox>
+      <ColoredBox width={100} height={25} color="thistle"></ColoredBox>
     </>
   )
 }
