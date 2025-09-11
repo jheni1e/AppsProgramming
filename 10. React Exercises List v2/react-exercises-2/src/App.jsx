@@ -9,6 +9,7 @@ import CustomWelcome from './components/CustomWelcome'
 import TextboxLabel from './components/TextboxLabel'
 import CustomCounter from './components/CustomCounter'
 import TrafficLights from './components/TrafficLights'
+import AvatarStatus from './components/AvatarStatus'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -51,7 +52,10 @@ function App() {
         <TrafficLights currColor="green"></TrafficLights>
       </div>
 
-      
+      <AvatarStatus image="https://preview.redd.it/make-the-comments-look-like-arthur-morgans-book-of-roasts-v0-cc33j20f1lra1.jpg?width=640&crop=smart&auto=webp&s=c083cd528fe3b7032d5d00110ae02b1862fd72fb"
+        isOnline={true}></AvatarStatus>
+      <AvatarStatus image="https://i.redd.it/jason-lucia-development-like-arthur-morgan-v0-c1ne31bkg56c1.jpg?width=828&format=pjpg&auto=webp&s=f1dffbaed05b6c20b2508aaeac26a2ed6b82c2ff"
+        isOnline={false}></AvatarStatus>
     </>
   )
 }
