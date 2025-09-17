@@ -50,7 +50,7 @@ nav a {
   color: darkblue;
   text-decoration: none;
   font-size: 18px;
-  margin-right: 20px; /* Espaço entre os links */
+  margin-right: 20px;
 }
 
 nav a:hover {
