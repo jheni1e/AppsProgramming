@@ -1,12 +1,12 @@
 import './App.css'
-import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
+import { Routes, Route, Link } from 'react-router-dom';
 import Home from './pages/Home';
 import About from './pages/About';
+import Profile from './components/Profile';
 
 function App() {
   return (
     <>
-      <BrowserRouter>
       <header>
         <nav>
           <Link to="/">Ínicio</Link>
@@ -14,11 +14,11 @@ function App() {
         </nav>
       </header>
 
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
-        </Routes>
-      </BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/profile/:name" element={<Profile />} />
+      </Routes>
     </>
   )
 }
