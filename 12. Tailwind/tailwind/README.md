@@ -2,7 +2,7 @@
 npm install tailwindcss @tailwindcss/vite
 
 # Configurar o plugin Vite
-## eslint.config.js
+## vite.config.js
 import { defineConfig } from 'vite'
 import tailwindcss from '@tailwindcss/vite'
 export default defineConfig({
