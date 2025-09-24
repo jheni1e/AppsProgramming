@@ -15,8 +15,8 @@ export default function Button() {
 
     return (
         <>
-        <div style={{display: 'flex', flexDirection: 'column', justifyContent: 'center'}}>
-            <img src={dog.message}></img>
+        <div style={{display: 'flex', flexDirection: 'column'}}>
+            <img src={dog.message} style={{width: '500px'}}></img>
             <button onClick={getDog}>Click here</button>
         </div>
         </>
