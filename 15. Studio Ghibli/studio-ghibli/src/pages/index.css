@@ -1,0 +1,29 @@
+@import "tailwindcss";
+
+@font-face {
+    font-family: "seasons";
+    src: url("../assets/Fontspring-DEMO-theseasons-reg.otf") format("opentype");
+}
+
+* {
+    font-family: "seasons";
+}
+
+h1 {
+    font-size: 3.5rem;
+    margin-bottom: 1.25rem;
+}
+
+button {
+    border: 1px solid #ccc;
+    border-radius: 0;
+    font-size: 1.2rem;
+}
+
+button:hover {
+    border: 1px solid #000;
+}
+
+button:focus {
+    outline: none;
+}
