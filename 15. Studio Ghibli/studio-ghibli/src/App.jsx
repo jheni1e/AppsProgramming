@@ -13,9 +13,9 @@ function App() {
     <>
       <header>
         <nav>
-          <Link to="/" className="text-xl font-mono">Home</Link>
-          <Link to="/movies" className="text-xl font-mono">Movies</Link>
-          <Link to="/about" className="text-xl font-mono">About</Link>
+          <Link to="/" className="text-xl">Home</Link>
+          <Link to="/movies" className="text-xl">Movies</Link>
+          <Link to="/about" className="text-xl">About</Link>
         </nav>
       </header>
 

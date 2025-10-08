@@ -21,7 +21,6 @@ export default function Movies() {
     const getMovies = async () => {
         const response = await axios.get("https://ghibliapi.vercel.app/films");
         setMovies(response.data);
-        console.log(response.data);
     }
 
     const openMovieDetails = (movie) => {
