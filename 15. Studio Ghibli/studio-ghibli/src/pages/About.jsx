@@ -4,7 +4,7 @@ import sticker4 from "../assets/sticker4.gif"
 export default function About() {
     return (
         <>
-            <h1 className="font-sans">About the Application</h1>
+            <h1>About the Application</h1>
 
             <p className="text-xl w-200">
                 This webpage was made to practice the use of React Hooks, such as UseEffect and UseState,

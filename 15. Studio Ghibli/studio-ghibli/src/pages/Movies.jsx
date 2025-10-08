@@ -41,8 +41,7 @@ export default function Movies() {
                             <li
                                 key={movie.id}
                                 onClick={(() => openMovieDetails(movie))}
-                                style={{ cursor: 'pointer', marginBottom: '8px' }}
-                                className="font-mono text-lg m-2">
+                                className="text-lg m-2 mb-2 cursor-pointer">
                                 ▸ {movie.title.replace("'", "")}
                             </li>
                         ))}
