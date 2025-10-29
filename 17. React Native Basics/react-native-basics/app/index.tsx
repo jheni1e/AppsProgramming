@@ -8,6 +8,7 @@ export default function HomeScreen() {
         oiiiiiii
         <HelloWave />
       </Text>
+      <View style={styles.square} />
     </View>
   );
 }
@@ -15,7 +16,17 @@ export default function HomeScreen() {
 const styles = StyleSheet.create({
   title: {
     color: 'black',
-    fontSize: 30,
-    fontWeight: 'bold'
+    fontSize: 40,
+    fontWeight: 'bold',
+    textAlign: 'center',
+    margin: 12
+  },
+  square: {
+    height: 300,
+    width: 300,
+    backgroundColor: 'thistle',
+    alignSelf: 'center',
+    margin: 10,
+    borderRadius: 8
   }
 })
