@@ -1,5 +1,5 @@
 import { HelloWave } from '@/components/hello-wave';
-import { StyleSheet, View, Text, TextInput } from 'react-native';
+import { StyleSheet, View, Text, TextInput, TouchableOpacity, Image } from 'react-native';
 import { useFonts, Montserrat_400Regular, Montserrat_700Bold } from '@expo-google-fonts/montserrat';
 import { useState } from 'react';
 
@@ -20,7 +20,16 @@ export default function HomeScreen() {
       <View style={styles.square} />
       <Text style={styles.text}>fala paizao {text}</Text>
       <TextInput placeholder="Digite aqui" style={styles.input}
-      onChange={(e) => setText(e.target.value)} />
+        onChangeText={text => setText(text)} />
+      <TouchableOpacity>
+        <View style={styles.button}>
+          <Text style={styles.text}>oiiiiii</Text>
+        </View>
+      </TouchableOpacity>
+      <Image
+        source={{ uri: 'https://i.pinimg.com/736x/30/8e/8c/308e8c003d1bde0d36af56fd2905aedc.jpg' }}
+        style={styles.image}
+      />
     </View>
   );
 }
@@ -49,11 +58,26 @@ const styles = StyleSheet.create({
     height: 30,
     textAlign: 'center',
     borderWidth: 1,
-    borderColor: 'gray',
-    outline: 'none'
+    borderColor: 'gray'
   },
   text: {
     textAlign: 'center',
     fontSize: 20
-  }
+  },
+  button: {
+    display: 'flex',
+    justifyContent: 'center',
+    alignSelf: 'center',
+    width: 150,
+    height: 50,
+    borderWidth: 1,
+    borderColor: 'gray',
+    borderRadius: 6
+  },
+  image: {
+    width: 400,
+    height: 500,
+    alignSelf: 'center',
+    margin: 30
+  },
 })
