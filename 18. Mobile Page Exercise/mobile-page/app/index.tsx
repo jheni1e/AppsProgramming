@@ -1,42 +1,63 @@
-import { StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
+import { Image, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
 import { useFonts, Montserrat_400Regular, Montserrat_700Bold } from '@expo-google-fonts/montserrat';
+import { useRouter } from 'expo-router';
 
 export default function HomeScreen() {
+  const router = useRouter();
+
   const [fontsLoaded] = useFonts({
     Montserrat_400Regular,
     Montserrat_700Bold,
   });
 
+  if (!fontsLoaded) return null;
+
   return (
-    <View style={styles.center}>
-      <Text style={styles.title}>Welcome back!</Text>
+    <View style={styles.container}>
+      <View style={styles.header}>
+        <TouchableOpacity onPress={() => router.push('/')}>
+          <Image source={require('../assets/images/house-blank_9239733.png')} style={styles.image} />
+        </TouchableOpacity>
+      </View>
+      <View style={styles.center}>
 
-      <TextInput placeholder="E-mail" style={styles.input} />
-      <View style={styles.underInput}></View>
+        <Text style={styles.title}>Welcome back!</Text>
 
-      <TextInput placeholder="Password" style={styles.input} />
-      <View style={styles.underInput}></View>
+        <TextInput placeholder="E-mail" style={styles.input} />
+        <View style={styles.underInput}></View>
 
-      <TouchableOpacity>
-        <View style={styles.button}>
-          <Text style={styles.text}>Login</Text>
-        </View>
-      </TouchableOpacity>
+        <TextInput placeholder="Password" style={styles.input} />
+        <View style={styles.underInput}></View>
 
-      <Text style={styles.forgotPasswordMsg}>Forgot your password?</Text>
-      <Text style={styles.link}>Click here</Text>
+        <TouchableOpacity>
+          <View style={styles.button}>
+            <Text style={styles.text}>Login</Text>
+          </View>
+        </TouchableOpacity>
+
+        <Text style={styles.forgotPasswordMsg}>Forgot your password?</Text>
+        <Text style={styles.link}>Click here</Text>
+
+        <TouchableOpacity style={styles.register} onPress={() => router.push('/register')}>
+          <Text style={styles.registerText}>Create your account here!</Text>
+        </TouchableOpacity>
+      </View>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#F9FEFF',
+  },
   title: {
     color: 'black',
     fontSize: 40,
     fontWeight: 'bold',
     fontFamily: 'Montserrat_700Bold',
     textAlign: 'center',
-    margin: 12
+    margin: 12,
   },
   text: {
     textAlign: 'center',
@@ -52,7 +73,7 @@ const styles = StyleSheet.create({
     height: 50,
     borderRadius: 10,
     backgroundColor: 'black',
-    marginTop: 20
+    marginTop: 20,
   },
   input: {
     alignSelf: 'center',
@@ -62,36 +83,52 @@ const styles = StyleSheet.create({
     textAlign: 'left',
     fontFamily: 'monospace',
     color: 'gray',
-    marginLeft: 40
+    marginLeft: 20,
+    outlineColor: 'transparent',
   },
   underInput: {
-    width: 200,
+    width: 220,
     height: 1,
     backgroundColor: 'black',
     marginTop: -20,
-    marginBottom: -5
+    marginBottom: -5,
   },
   image: {
-    width: 400,
-    height: 500,
+    width: 25,
+    height: 25,
     alignSelf: 'center',
-    margin: 30
+    margin: 30,
   },
   center: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    alignSelf: 'center',
-    backgroundColor: '#F9FEFF',
   },
   forgotPasswordMsg: {
     marginTop: 20,
     fontFamily: 'Montserrat_400Regular',
-    color: 'black'
+    color: 'black',
   },
   link: {
     fontFamily: 'Montserrat_700Bold',
     textDecorationLine: 'underline',
-    marginTop: 2
-  }
+    marginTop: 2,
+  },
+  header: {
+    width: '100%',
+    height: 80,
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderBottomColor: '#ccc',
+    borderBottomWidth: 1,
+    paddingTop: 20,
+  },
+  register: {
+    marginTop: 50,
+  },
+  registerText: {
+    fontFamily: 'Montserrat_400Regular',
+    marginTop: 2,
+    fontSize: 18
+  },
 });
