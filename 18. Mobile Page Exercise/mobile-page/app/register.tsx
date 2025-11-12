@@ -28,10 +28,10 @@ export default function HomePage() {
                 <TextInput placeholder="E-mail" style={styles.input} />
                 <View style={styles.underInput}></View>
 
-                <TextInput placeholder="Password" style={styles.input} />
+                <TextInput placeholder="Password" style={styles.input} secureTextEntry={true} />
                 <View style={styles.underInput}></View>
 
-                <TextInput placeholder="Confirm password" style={styles.input} />
+                <TextInput placeholder="Confirm password" style={styles.input} secureTextEntry={true} />
                 <View style={styles.underInput}></View>
 
                 <TouchableOpacity onPress={() => router.push('/register')}>

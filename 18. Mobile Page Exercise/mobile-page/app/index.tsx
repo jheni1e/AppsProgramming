@@ -26,7 +26,7 @@ export default function HomeScreen() {
         <TextInput placeholder="E-mail" style={styles.input} />
         <View style={styles.underInput}></View>
 
-        <TextInput placeholder="Password" style={styles.input} />
+        <TextInput placeholder="Password" style={styles.input} secureTextEntry={true}/>
         <View style={styles.underInput}></View>
 
         <TouchableOpacity>
@@ -40,9 +40,9 @@ export default function HomeScreen() {
 
       </View>
       <View style={styles.register}>
-        <Text style={styles.registerText}>Não tem uma conta?</Text>
+        <Text style={styles.registerText}>Don't have an account?</Text>
         <TouchableOpacity onPress={() => router.push('/register')}>
-          <Text style={styles.registerLink}>Crie sua conta agora.</Text>
+          <Text style={styles.registerLink}>Create your account now</Text>
         </TouchableOpacity>
       </View>
     </View>
