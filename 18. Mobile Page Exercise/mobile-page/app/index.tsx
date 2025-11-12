@@ -38,8 +38,11 @@ export default function HomeScreen() {
         <Text style={styles.forgotPasswordMsg}>Forgot your password?</Text>
         <Text style={styles.link}>Click here</Text>
 
-        <TouchableOpacity style={styles.register} onPress={() => router.push('/register')}>
-          <Text style={styles.registerText}>Create your account here!</Text>
+      </View>
+      <View style={styles.register}>
+        <Text style={styles.registerText}>Não tem uma conta?</Text>
+        <TouchableOpacity onPress={() => router.push('/register')}>
+          <Text style={styles.registerLink}>Crie sua conta agora.</Text>
         </TouchableOpacity>
       </View>
     </View>
@@ -96,13 +99,15 @@ const styles = StyleSheet.create({
   image: {
     width: 25,
     height: 25,
-    alignSelf: 'center',
     margin: 30,
+    alignSelf: 'flex-start',
+    tintColor: '#1C1C1C',
   },
   center: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
+    paddingHorizontal: 40,
   },
   forgotPasswordMsg: {
     marginTop: 20,
@@ -116,19 +121,30 @@ const styles = StyleSheet.create({
   },
   header: {
     width: '100%',
-    height: 80,
-    justifyContent: 'center',
-    alignItems: 'center',
-    borderBottomColor: '#ccc',
-    borderBottomWidth: 1,
-    paddingTop: 20,
+    height: 100,
+    justifyContent: 'flex-start',
+    alignItems: 'flex-start',
+    paddingTop: 45,
+    paddingLeft: 20,
   },
   register: {
-    marginTop: 50,
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+    padding: 20,
+    borderTopWidth: 1,
+    borderTopColor: '#F0F0F0',
   },
   registerText: {
     fontFamily: 'Montserrat_400Regular',
-    marginTop: 2,
-    fontSize: 18
+    fontSize: 14,
+    color: '#1C1C1C',
+    marginRight: 5,
   },
+  registerLink: {
+    fontFamily: 'Montserrat_700Bold',
+    fontSize: 14,
+    color: '#1C1C1C',
+    textDecorationLine: 'underline',
+  }
 });
