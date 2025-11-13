@@ -16,12 +16,12 @@ export default function HomePage() {
 
     const signUp = async () => {
         if (!name.trim() || !email.trim() || !password.trim() || !confirmPassword.trim()) {
-            Alert.alert('Erro', 'Por favor, preencha todos os campos.');
+            alert('Por favor, preencha todos os campos.');
             return;
         }
 
         if (password !== confirmPassword) {
-            Alert.alert('Erro', 'As senhas são diferentes.');
+            alert('As senhas são diferentes.');
             return;
         }
 
@@ -33,11 +33,11 @@ export default function HomePage() {
             setPassword("");
             setConfirmPassword("");
 
-            Alert.alert('Sucesso', `Conta criada com sucesso! Bem-vindo(a), ${name}.`);
+            alert(`Conta criada com sucesso! Bem-vindo(a), ${name}.`);
 
             router.push('/');
         } catch (error) {
-            Alert.alert('Erro', 'Ocorreu um erro ao criar a conta.');
+            alert('Ocorreu um erro ao criar a conta.');
         }
     }
 
