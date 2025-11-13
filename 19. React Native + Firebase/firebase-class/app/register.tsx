@@ -1,7 +1,7 @@
 import { View, Text, StyleSheet, Image, TouchableOpacity, TextInput } from 'react-native';
 import { useFonts, Montserrat_400Regular, Montserrat_700Bold } from '@expo-google-fonts/montserrat';
 import { useRouter } from 'expo-router';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { getAuth } from 'firebase/auth';
 import { app } from '../firebaseConfig';
 
@@ -13,6 +13,11 @@ export default function HomePage() {
     const [confirmPassword, setConfirmPassword] = useState("");
 
     const auth = getAuth(app);
+
+    useEffect(() => {
+        console.log(name, email, password, confirmPassword)
+    }, [name, email,password,confirmPassword])
+
 
     const [fontsLoaded] = useFonts({
         Montserrat_400Regular,
