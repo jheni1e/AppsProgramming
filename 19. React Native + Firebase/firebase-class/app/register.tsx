@@ -1,8 +1,8 @@
-import { View, Text, StyleSheet, Image, TouchableOpacity, TextInput } from 'react-native';
+import { View, Text, StyleSheet, Image, TouchableOpacity, TextInput, Alert } from 'react-native';
 import { useFonts, Montserrat_400Regular, Montserrat_700Bold } from '@expo-google-fonts/montserrat';
 import { useRouter } from 'expo-router';
-import { useEffect, useState } from 'react';
-import { getAuth } from 'firebase/auth';
+import { useState } from 'react';
+import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth';
 import { app } from '../firebaseConfig';
 
 export default function HomePage() {
@@ -14,10 +14,32 @@ export default function HomePage() {
 
     const auth = getAuth(app);
 
-    useEffect(() => {
-        console.log(name, email, password, confirmPassword)
-    }, [name, email,password,confirmPassword])
+    const signUp = async () => {
+        if (!name.trim() || !email.trim() || !password.trim() || !confirmPassword.trim()) {
+            Alert.alert('Erro', 'Por favor, preencha todos os campos.');
+            return;
+        }
 
+        if (password !== confirmPassword) {
+            Alert.alert('Erro', 'As senhas são diferentes.');
+            return;
+        }
+
+        try {
+            const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+
+            setName("");
+            setEmail("");
+            setPassword("");
+            setConfirmPassword("");
+
+            Alert.alert('Sucesso', `Conta criada com sucesso! Bem-vindo(a), ${name}.`);
+
+            router.push('/');
+        } catch (error) {
+            Alert.alert('Erro', 'Ocorreu um erro ao criar a conta.');
+        }
+    }
 
     const [fontsLoaded] = useFonts({
         Montserrat_400Regular,
@@ -39,7 +61,7 @@ export default function HomePage() {
                 <TextInput placeholder="Name" style={styles.input} onChangeText={(value) => setName(value)} />
                 <View style={styles.underInput}></View>
 
-                <TextInput placeholder="E-mail" style={styles.input} onChangeText={(value) => setEmail(value)}/>
+                <TextInput placeholder="E-mail" style={styles.input} onChangeText={(value) => setEmail(value)} />
                 <View style={styles.underInput}></View>
 
                 <TextInput placeholder="Password" style={styles.input} secureTextEntry={true} onChangeText={(value) => setPassword(value)} />
@@ -48,7 +70,7 @@ export default function HomePage() {
                 <TextInput placeholder="Confirm password" style={styles.input} secureTextEntry={true} onChangeText={(value) => setConfirmPassword(value)} />
                 <View style={styles.underInput}></View>
 
-                <TouchableOpacity onPress={() => router.push('/register')}>
+                <TouchableOpacity onPress={signUp}>
                     <View style={styles.button}>
                         <Text style={styles.text}>Register</Text>
                     </View>
