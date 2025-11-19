@@ -4,6 +4,7 @@ import { useRouter } from 'expo-router';
 import { useState } from 'react';
 import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth';
 import { app } from '../firebaseConfig';
+import Swal from 'sweetalert2';
 
 export default function HomePage() {
     const router = useRouter();
@@ -16,12 +17,20 @@ export default function HomePage() {
 
     const signUp = async () => {
         if (!name.trim() || !email.trim() || !password.trim() || !confirmPassword.trim()) {
-            alert('Por favor, preencha todos os campos.');
+            Swal.fire({
+                title: "Campos vazios",
+                text: "Por favor, preencha todos os campos.",
+                icon: "warning",
+            });
             return;
         }
 
         if (password !== confirmPassword) {
-            alert('As senhas são diferentes.');
+            Swal.fire({
+                title: "Senhas diferentes",
+                text: "As senhas são diferentes.",
+                icon: "error",
+            });
             return;
         }
 
@@ -33,11 +42,38 @@ export default function HomePage() {
             setPassword("");
             setConfirmPassword("");
 
-            alert(`Conta criada com sucesso! Bem-vindo(a), ${name}.`);
+            await Swal.fire({
+                title: "Conta criada!",
+                text: `Bem-vindo(a), ${name}.`,
+                icon: "success",
+                confirmButtonText: "OK",
+            });
 
             router.push('/');
         } catch (error) {
-            alert('Ocorreu um erro ao criar a conta.');
+            let message = "Ocorreu um erro ao criar a conta.";
+
+            if (typeof error === "object" && error !== null && "code" in error) {
+                const code = (error as any).code;
+
+                switch (code) {
+                    case "auth/email-already-in-use":
+                        message = "Este e-mail já está em uso.";
+                        break;
+                    case "auth/invalid-email":
+                        message = "O e-mail informado é inválido.";
+                        break;
+                    case "auth/weak-password":
+                        message = "A senha deve ter pelo menos 6 caracteres.";
+                        break;
+                }
+            }
+
+            Swal.fire({
+                title: "Erro",
+                text: message,
+                icon: "error",
+            });
         }
     }
 
