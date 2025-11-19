@@ -18,8 +18,8 @@ export default function HomePage() {
     const signUp = async () => {
         if (!name.trim() || !email.trim() || !password.trim() || !confirmPassword.trim()) {
             Swal.fire({
-                title: "Campos vazios",
-                text: "Por favor, preencha todos os campos.",
+                title: "Empty fields",
+                text: "Please, fill up all the fields.",
                 icon: "warning",
             });
             return;
@@ -27,15 +27,15 @@ export default function HomePage() {
 
         if (password !== confirmPassword) {
             Swal.fire({
-                title: "Senhas diferentes",
-                text: "As senhas são diferentes.",
+                title: "Different passwords",
+                text: "The passwords don't match.",
                 icon: "error",
             });
             return;
         }
 
         try {
-            const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+            await createUserWithEmailAndPassword(auth, email, password);
 
             setName("");
             setEmail("");
@@ -43,28 +43,28 @@ export default function HomePage() {
             setConfirmPassword("");
 
             await Swal.fire({
-                title: "Conta criada!",
-                text: `Bem-vindo(a), ${name}.`,
+                title: "Account created!",
+                text: `Welcome, ${name}.`,
                 icon: "success",
                 confirmButtonText: "OK",
             });
 
             router.push('/');
         } catch (error) {
-            let message = "Ocorreu um erro ao criar a conta.";
+            let message = "An error occured while creating account.";
 
             if (typeof error === "object" && error !== null && "code" in error) {
                 const code = (error as any).code;
 
                 switch (code) {
                     case "auth/email-already-in-use":
-                        message = "Este e-mail já está em uso.";
+                        message = "This email is already in use.";
                         break;
                     case "auth/invalid-email":
-                        message = "O e-mail informado é inválido.";
+                        message = "This email is invalid.";
                         break;
                     case "auth/weak-password":
-                        message = "A senha deve ter pelo menos 6 caracteres.";
+                        message = "The password must have 6 characters.";
                         break;
                 }
             }
