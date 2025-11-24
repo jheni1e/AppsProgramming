@@ -26,6 +26,8 @@ export default function HomeScreen() {
         icon: "success",
         confirmButtonText: "OK",
       });
+
+      router.push('/home')
     } catch (error) {
       let message = "An error occured while trying to sign in.";
 
