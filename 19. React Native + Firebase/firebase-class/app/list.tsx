@@ -99,10 +99,6 @@ export default function VehicleList() {
                 <View style={styles.center}>
 
                     <View style={{ padding: 20 }}>
-                        <Text style={styles.albumTitle}>
-                            My Albums
-                        </Text>
-
                         <FlatList
                             data={albums}
                             keyExtractor={(item) => item.id}
@@ -126,7 +122,6 @@ export default function VehicleList() {
                             )}
                         />
                     </View>
-
                 </View>
             </View>
         </>

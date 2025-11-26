@@ -38,6 +38,16 @@ export default function HomeScreen() {
                         <Text style={styles.text2}>Sign Up</Text>
                     </View>
                 </TouchableOpacity>
+                <TouchableOpacity onPress={() => router.push('/list')}>
+                    <View style={styles.button1}>
+                        <Text style={styles.text1}>Albums List</Text>
+                    </View>
+                </TouchableOpacity>
+                <TouchableOpacity onPress={() => router.push('/albums')}>
+                    <View style={styles.button2}>
+                        <Text style={styles.text2}>Register Album</Text>
+                    </View>
+                </TouchableOpacity>
             </View>
         </View>
     );
