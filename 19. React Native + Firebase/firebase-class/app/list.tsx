@@ -73,7 +73,7 @@ export default function VehicleList() {
                 <View style={styles.center}>
 
                     <View style={{ padding: 20 }}>
-                        <Text style={{ fontSize: 22, fontWeight: "bold", marginBottom: 10 }}>
+                        <Text style={styles.albumTitle}>
                             My Albums
                         </Text>
 
@@ -82,11 +82,11 @@ export default function VehicleList() {
                             keyExtractor={(item) => item.id}
                             renderItem={({ item }) => (
                                 <View style={{ marginBottom: 10 }}>
-                                    {/* <Image source={{ uri: item.albumCoverUrl }} style={styles.fullImage} /> */}
-                                    <Text style={styles.text1}>Name: {item.name}</Text>
-                                    <Text style={styles.text1}>Genre: {item.genre}</Text>
-                                    <Text style={styles.text1}>Year: {item.year}</Text>
-                                    <Text style={styles.text1}>Author: {item.author}</Text>
+                                    <Image source={{ uri: item.coverUrl }} style={styles.fullImage} />
+                                    <Text style={styles.text1}><strong>Name:</strong> {item.name}</Text>
+                                    <Text style={styles.text1}><strong>Genre:</strong> {item.genre}</Text>
+                                    <Text style={styles.text1}><strong>Year:</strong> {item.year}</Text>
+                                    <Text style={styles.text1}><strong>Author:</strong> {item.author}</Text>
                                 </View>
                             )}
                         />
@@ -169,5 +169,11 @@ const styles = StyleSheet.create({
         width: 300,
         height: 300,
         alignSelf: 'center',
+    },
+    albumTitle: {
+        fontFamily: 'Montserrat_700Bold',
+        marginBottom: 50,
+        textAlign: 'center',
+        fontSize: 40,
     },
 });

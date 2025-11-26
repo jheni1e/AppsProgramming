@@ -12,7 +12,7 @@ export default function RegisterAlbum() {
     const [genre, setGenre] = useState('');
     const [year, setYear] = useState('');
     const [author, setAuthor] = useState('');
-    const [albumCoverUrl, setAlbumCoverUrl] = useState('');
+    const [coverUrl, setCoverUrl] = useState('');
     
     const [fontsLoaded] = useFonts({
         Montserrat_400Regular,
@@ -33,7 +33,7 @@ export default function RegisterAlbum() {
                 genre,
                 year: Number(year),
                 author: author || null,
-                albumCoverUrl,
+                coverUrl,
                 userId: 'jheni1e',
                 createdAt: serverTimestamp(),
                 updatedAt: serverTimestamp(),
@@ -44,6 +44,9 @@ export default function RegisterAlbum() {
 
         } catch (err) {
             console.log("Error:", err);
+        }
+        finally {
+            router.push('/list')
         }
     }
 
@@ -69,7 +72,7 @@ export default function RegisterAlbum() {
                     <TextInput placeholder="Author" onChangeText={setAuthor} style={styles.input} />
                     <View style={styles.underInput}></View>
 
-                    <TextInput placeholder="Album Cover URL" onChangeText={setAlbumCoverUrl} style={styles.input} />
+                    <TextInput placeholder="Album Cover URL" onChangeText={setCoverUrl} style={styles.input} />
                     <View style={styles.underInput}></View>
 
                     <TouchableOpacity onPress={registerAlbum}>
