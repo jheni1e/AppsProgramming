@@ -7,13 +7,13 @@ import { useRouter } from 'expo-router';
 
 export default function RegisterAlbum() {
     const router = useRouter();
-
+    
     const [name, setName] = useState('');
     const [genre, setGenre] = useState('');
     const [year, setYear] = useState('');
     const [author, setAuthor] = useState('');
     const [albumCoverUrl, setAlbumCoverUrl] = useState('');
-
+    
     const [fontsLoaded] = useFonts({
         Montserrat_400Regular,
         Montserrat_700Bold,
@@ -57,15 +57,24 @@ export default function RegisterAlbum() {
                 </View>
                 <View style={styles.center}>
 
-                    <TextInput placeholder="Name" onChangeText={setName} style={styles.text1} />
-                    <TextInput placeholder="Genre" onChangeText={setGenre} style={styles.text1} />
-                    <TextInput placeholder="Year" onChangeText={setYear} style={styles.text1} />
-                    <TextInput placeholder="Author" onChangeText={setAuthor} style={styles.text1} />
-                    <TextInput placeholder="Album Cover URL" onChangeText={setAlbumCoverUrl} style={styles.text1} />
+                    <TextInput placeholder="Name" onChangeText={setName} style={styles.input} />
+                    <View style={styles.underInput}></View>
+
+                    <TextInput placeholder="Genre" onChangeText={setGenre} style={styles.input} />
+                    <View style={styles.underInput}></View>
+
+                    <TextInput placeholder="Year" onChangeText={setYear} style={styles.input} />
+                    <View style={styles.underInput}></View>
+
+                    <TextInput placeholder="Author" onChangeText={setAuthor} style={styles.input} />
+                    <View style={styles.underInput}></View>
+
+                    <TextInput placeholder="Album Cover URL" onChangeText={setAlbumCoverUrl} style={styles.input} />
+                    <View style={styles.underInput}></View>
 
                     <TouchableOpacity onPress={registerAlbum}>
-                        <View>
-                            <Text>Cadastrar</Text>
+                        <View style={styles.button}>
+                            <Text style={styles.text2}>Register</Text>
                         </View>
                     </TouchableOpacity>
                 </View>
@@ -141,5 +150,33 @@ const styles = StyleSheet.create({
         alignItems: 'flex-start',
         paddingTop: 45,
         paddingLeft: 20,
+    },
+    input: {
+        alignSelf: 'center',
+        margin: 20,
+        width: 200,
+        height: 30,
+        textAlign: 'left',
+        fontFamily: 'monospace',
+        color: 'gray',
+        marginLeft: 20,
+        outlineColor: 'transparent',
+    },
+    underInput: {
+        width: 220,
+        height: 1,
+        backgroundColor: 'black',
+        marginTop: -20,
+        marginBottom: -5,
+    },
+    button: {
+        display: 'flex',
+        justifyContent: 'center',
+        alignSelf: 'center',
+        width: 200,
+        height: 50,
+        borderRadius: 10,
+        backgroundColor: 'black',
+        marginTop: 35,
     },
 });

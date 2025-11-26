@@ -5,11 +5,17 @@ import { FlatList, Text, View, StyleSheet, TouchableOpacity, Image } from "react
 import { db } from "../firebaseConfig";
 import { useRouter } from 'expo-router';
 
+
 export default function VehicleList() {
+
     const router = useRouter();
 
     const [albums, setAlbums] = useState<any[]>([]);
     const [loading, setLoading] = useState(true);
+
+    useEffect(() => {
+        fetchAlbums();
+    }, []);
 
     const [fontsLoaded] = useFonts({
         Montserrat_400Regular,
@@ -39,10 +45,6 @@ export default function VehicleList() {
             setLoading(false);
         }
     }
-
-    useEffect(() => {
-        fetchAlbums();
-    }, []);
 
     if (loading) {
         return (
@@ -80,10 +82,11 @@ export default function VehicleList() {
                             keyExtractor={(item) => item.id}
                             renderItem={({ item }) => (
                                 <View style={{ marginBottom: 10 }}>
-                                    <Text style={styles.text1}>Name: {item.brand}</Text>
-                                    <Text style={styles.text1}>Genre: {item.model}</Text>
+                                    {/* <Image source={{ uri: item.albumCoverUrl }} style={styles.fullImage} /> */}
+                                    <Text style={styles.text1}>Name: {item.name}</Text>
+                                    <Text style={styles.text1}>Genre: {item.genre}</Text>
                                     <Text style={styles.text1}>Year: {item.year}</Text>
-                                    <Text style={styles.text1}>Author: {item.plate}</Text>
+                                    <Text style={styles.text1}>Author: {item.author}</Text>
                                 </View>
                             )}
                         />
@@ -161,5 +164,10 @@ const styles = StyleSheet.create({
         alignItems: 'flex-start',
         paddingTop: 45,
         paddingLeft: 20,
+    },
+    fullImage: {
+        width: 300,
+        height: 300,
+        alignSelf: 'center',
     },
 });
