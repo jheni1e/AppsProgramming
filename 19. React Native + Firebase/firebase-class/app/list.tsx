@@ -1,4 +1,4 @@
-import { collection, getDocs, query, where } from "firebase/firestore";
+import { collection, getDocs, query, doc, updateDoc, deleteDoc } from "firebase/firestore";
 import { useFonts, Montserrat_400Regular, Montserrat_700Bold } from '@expo-google-fonts/montserrat';
 import { useEffect, useState } from "react";
 import { FlatList, Text, View, StyleSheet, TouchableOpacity, Image } from "react-native";
@@ -46,6 +46,32 @@ export default function VehicleList() {
         }
     }
 
+    async function updateAlbum(id: string, data: any) {
+        try {
+            const ref = doc(db, "albums", id);
+            await updateDoc(ref, data);
+
+            alert("Album updated!");
+            fetchAlbums();
+
+        } catch (err) {
+            console.log("Error:", err);
+        }
+    }
+
+    async function deleteAlbum(id: string) {
+        try {
+            const ref = doc(db, "albums", id);
+            await deleteDoc(ref);
+
+            alert("Album deleted!");
+            fetchAlbums();
+
+        } catch (err) {
+            console.log("Error:", err);
+        }
+    }
+
     if (loading) {
         return (
             <View style={{ padding: 20 }}>
@@ -87,10 +113,20 @@ export default function VehicleList() {
                                     <Text style={styles.text1}><strong>Genre:</strong> {item.genre}</Text>
                                     <Text style={styles.text1}><strong>Year:</strong> {item.year}</Text>
                                     <Text style={styles.text1}><strong>Author:</strong> {item.author}</Text>
+                                    <View style={styles.centerButtons}>
+                                        <TouchableOpacity style={styles.updateButton} onPress={() => updateAlbum(item.id, { brand: "Updated" })}>
+                                            <Text style={styles.text2}>Edit</Text>
+                                        </TouchableOpacity>
+
+                                        <TouchableOpacity style={styles.deleteButton} onPress={() => deleteAlbum(item.id)}>
+                                            <Text style={styles.text2}>Delete</Text>
+                                        </TouchableOpacity>
+                                    </View>
                                 </View>
                             )}
                         />
                     </View>
+
                 </View>
             </View>
         </>
@@ -175,5 +211,24 @@ const styles = StyleSheet.create({
         marginBottom: 50,
         textAlign: 'center',
         fontSize: 40,
+    },
+    updateButton: {
+        backgroundColor: "#16476A",
+        paddingVertical: 8,
+        paddingHorizontal: 14,
+        borderRadius: 8,
+    },
+    deleteButton: {
+        backgroundColor: "#BF092F",
+        paddingVertical: 8,
+        paddingHorizontal: 14,
+        borderRadius: 8,
+    },
+    centerButtons: {
+        flexDirection: "row",
+        marginTop: 12,
+        gap: 12,
+        flex: 1,
+        justifyContent: 'center'
     },
 });
